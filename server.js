@@ -5,12 +5,13 @@ const port = 4000;
 const cors = require('cors');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/user.routes');
+const productRoutes = require('./routes/product.routes');
 // Middleware
 app.use(express.json()); 
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('Hello, Express Backend! muees');
+  res.send('Hello, Express Backend!');
 });
 app.use(cors({
   origin: 'http://localhost:3000',
@@ -23,6 +24,7 @@ connectDB();
 
 
 app.use('/api/user', userRoutes);
+app.use('/api/product', productRoutes);
 
 // Start server
 app.listen(port, () => {
